@@ -1,0 +1,35 @@
+@model ProjetoAgendamento.Models.Paciente
+
+@{
+    ViewData["Title"] = "Remover paciente";
+}
+
+<h1>Remover paciente</h1>
+
+<div class="card">
+    <p><strong>Deseja realmente remover este paciente?</strong></p>
+
+    <div class="details-grid">
+        <strong>Nome</strong>
+        <span>@Model.Nome</span>
+
+        <strong>CPF</strong>
+        <span>@Model.Cpf</span>
+
+        <strong>Telefone</strong>
+        <span>@Model.Telefone</span>
+
+        <strong>Endereço</strong>
+        <span>@Model.Endereco</span>
+
+        <strong>Data de Nascimento</strong>
+        <span>@Model.DataNascimento.ToString("dd/MM/yyyy")</span>
+    </div>
+
+    <form asp-controller="Pacientes" asp-action="Delete" asp-route-id="@Model.Id" method="post">
+        <div class="actions">
+            <button type="submit" class="btn btn-danger">Remover</button>
+            <a class="btn btn-secondary" asp-controller="Pacientes" asp-action="Index">Cancelar</a>
+        </div>
+    </form>
+</div>

@@ -25,7 +25,6 @@ public class PacientesController : Controller
     }
 
     [HttpPost]
-    [ValidateAntiForgeryToken]
     public IActionResult Create(Paciente paciente)
     {
         if (!ModelState.IsValid)
@@ -52,7 +51,6 @@ public class PacientesController : Controller
     }
 
     [HttpPost]
-    [ValidateAntiForgeryToken]
     public IActionResult Edit(int id, Paciente paciente)
     {
         if (id != paciente.Id)
@@ -83,8 +81,7 @@ public class PacientesController : Controller
         return View(paciente);
     }
 
-    [HttpPost, ActionName("Delete")]
-    [ValidateAntiForgeryToken]
+    [HttpPost]
     public IActionResult DeleteConfirmed(int id)
     {
         Paciente? paciente = _context.Pacientes.Find(id);
